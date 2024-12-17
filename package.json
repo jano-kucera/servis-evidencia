@@ -1,12 +1,14 @@
 {
   "name": "servis-evidencia",
   "version": "0.0.0",
+  "main": "app.js",
   "scripts": {
+    "serve": "ng serve",
+    "electron": "electron .",
+    "electron-build": "ng build --base-href ./ && npx electron-packager . servis-evidencia --overwrite",
+    "lint": "npx eslint \"**/*.{ts,html}\" --fix && prettier --write \"**/*.{json,scss}\" --log-level silent",
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "update-packages": "npx npm-check-updates --interactive --format group"
   },
   "private": true,
   "dependencies": {
@@ -27,6 +29,8 @@
     "@angular/cli": "^19.0.5",
     "@angular/compiler-cli": "^19.0.0",
     "@types/jasmine": "~5.1.0",
+    "electron": "^33.2.1",
+    "electron-reload": "^2.0.0-alpha.1",
     "jasmine-core": "~5.4.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
