@@ -1,42 +1,61 @@
 {
-  "name": "servis-evidencia",
-  "version": "0.0.0",
-  "main": "app.js",
-  "scripts": {
-    "serve": "ng serve",
-    "electron": "electron .",
-    "electron-build": "ng build --base-href ./ && npx electron-packager . servis-evidencia --overwrite",
-    "lint": "npx eslint \"**/*.{ts,html}\" --fix && prettier --write \"**/*.{json,scss}\" --log-level silent",
-    "ng": "ng",
-    "update-packages": "npx npm-check-updates --interactive --format group"
-  },
-  "private": true,
-  "dependencies": {
-    "@angular/animations": "^19.0.0",
-    "@angular/common": "^19.0.0",
-    "@angular/compiler": "^19.0.0",
-    "@angular/core": "^19.0.0",
-    "@angular/forms": "^19.0.0",
-    "@angular/platform-browser": "^19.0.0",
-    "@angular/platform-browser-dynamic": "^19.0.0",
-    "@angular/router": "^19.0.0",
-    "rxjs": "~7.8.0",
-    "tslib": "^2.3.0",
-    "zone.js": "~0.15.0"
-  },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "^19.0.5",
-    "@angular/cli": "^19.0.5",
-    "@angular/compiler-cli": "^19.0.0",
-    "@types/jasmine": "~5.1.0",
-    "electron": "^33.2.1",
-    "electron-reload": "^2.0.0-alpha.1",
-    "jasmine-core": "~5.4.0",
-    "karma": "~6.4.0",
-    "karma-chrome-launcher": "~3.2.0",
-    "karma-coverage": "~2.2.0",
-    "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.6.2"
-  }
+    "name": "servis-evidencia",
+    "version": "0.0.0",
+    "main": "app.js",
+    "scripts": {
+        "serve": "ng serve",
+        "electron": "electron .",
+        "electron-build": "ng build --base-href ./ && npx electron-packager . servis-evidencia --overwrite",
+        "lint": "npx eslint \"**/*.{ts,html}\" --fix && prettier --write \"**/*.{json,scss}\" --log-level silent",
+        "ng": "ng",
+        "update-packages": "npx npm-check-updates --interactive --format group"
+    },
+    "private": true,
+    "dependencies": {
+        "@angular/animations": "^19.0.0",
+        "@angular/common": "^19.0.0",
+        "@angular/compiler": "^19.0.0",
+        "@angular/core": "^19.0.0",
+        "@angular/forms": "^19.0.0",
+        "@angular/platform-browser": "^19.0.0",
+        "@angular/platform-browser-dynamic": "^19.0.0",
+        "@angular/router": "^19.0.0",
+        "rxjs": "~7.8.0",
+        "tslib": "^2.3.0",
+        "zone.js": "~0.15.0"
+    },
+    "devDependencies": {
+        "@angular-devkit/build-angular": "^19.0.5",
+        "@angular/cli": "^19.0.5",
+        "@angular/compiler-cli": "^19.0.0",
+        "@types/jasmine": "~5.1.0",
+        "electron": "^33.2.1",
+        "electron-reload": "^2.0.0-alpha.1",
+        "eslint-config-angular": "github:jano-kucera/eslint-config-angular#c7e4e5b540cb619251559fae87b480ccc6a523eb",
+        "jasmine-core": "~5.4.0",
+        "karma": "~6.4.0",
+        "karma-chrome-launcher": "~3.2.0",
+        "karma-coverage": "~2.2.0",
+        "karma-jasmine": "~5.1.0",
+        "karma-jasmine-html-reporter": "~2.1.0",
+        "typescript": "~5.6.2"
+    },
+    "prettier": {
+        "jsonRecursiveSort": true,
+        "multilineArraysWrapThreshold": 3,
+        "plugins": [
+            "prettier-plugin-css-order",
+            "prettier-plugin-sort-json",
+            "prettier-plugin-multiline-arrays"
+        ]
+    },
+    "eslintConfig": {
+        "extends": "eslint-config-angular",
+        "ignorePatterns": [
+            "node_modules/",
+            "dist/",
+            "public/",
+            "package-lock.json"
+        ]
+    }
 }
