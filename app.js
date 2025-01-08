@@ -1,12 +1,9 @@
 const { app, BrowserWindow } = require("electron");
-const electronReload = require("electron-reload");
 
-const path = require("path");
 const url = require("url");
-let mainWindow;
 
-function createWindow() {
-    mainWindow = new BrowserWindow({
+app.whenReady().then(() => {
+    const mainWindow = new BrowserWindow({
         width: 1920,
         height: 1080,
         icon: __dirname + "/public/favicon.ico",
@@ -16,10 +13,7 @@ function createWindow() {
         },
     });
 
-    // Clear refences when closed
-    mainWindow.on("closed", () => {
-        mainWindow = null;
-    });
+    mainWindow.openDevTools();
 
     // Load the app from localhost
     mainWindow.loadURL(
@@ -29,6 +23,4 @@ function createWindow() {
             slashes: true,
         }),
     );
-}
-
-app.whenReady().then(createWindow);
+});
