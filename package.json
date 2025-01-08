@@ -4,7 +4,7 @@
     "main": "app.js",
     "scripts": {
         "serve": "ng serve",
-        "electron": "electron .",
+        "electron": "electron . --trace-warnings",
         "electron-build": "ng build --base-href ./ && npx electron-packager . servis-evidencia --overwrite",
         "lint": "npx eslint \"**/*.{ts,html}\" --fix && prettier --write \"**/*.{json,scss}\" --log-level silent",
         "ng": "ng",
