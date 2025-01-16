@@ -7,6 +7,7 @@
 /tmp
 /out-tsc
 /bazel-out
+**/*.js
 
 # Node
 /node_modules

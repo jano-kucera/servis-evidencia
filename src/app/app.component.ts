@@ -1,11 +1,12 @@
 import { Component } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
+import { FolderScanComponent } from "./folder-scan/folder-scan.component";
 
 /**
  * Application's root component.
  */
 @Component({
-    imports: [RouterOutlet],
+    imports: [FolderScanComponent, RouterOutlet],
     selector: "app-root",
     styleUrl: "./app.component.scss",
     templateUrl: "./app.component.html",

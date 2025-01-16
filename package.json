@@ -1,10 +1,11 @@
 {
     "name": "servis-evidencia",
     "version": "0.0.0",
-    "main": "app.js",
+    "main": "src/electron/app.js",
     "scripts": {
         "serve": "ng serve",
-        "electron": "electron . --trace-warnings",
+        "transpile": "tsc src/electron/app-preload.ts src/electron/app.ts --watch",
+        "electron": "electron . --trace-warnings ",
         "electron-build": "ng build --base-href ./ && npx electron-packager . servis-evidencia --overwrite",
         "lint": "npx eslint \"**/*.{ts,html}\" --fix && prettier --write \"**/*.{json,scss}\" --log-level silent",
         "ng": "ng",
