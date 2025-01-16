@@ -3,9 +3,10 @@
     "version": "0.0.0",
     "main": "src/electron/app.js",
     "scripts": {
+        "start": "concurrently \"npm:serve\" \"npm:transpile\" \"npm:electron\"",
         "serve": "ng serve",
         "transpile": "tsc src/electron/app-preload.ts src/electron/app.ts --watch",
-        "electron": "electron . --trace-warnings ",
+        "electron": "wait-on http://localhost:4200 && electron . --trace-warnings ",
         "electron-build": "ng build --base-href ./ && npx electron-packager . servis-evidencia --overwrite",
         "lint": "npx eslint \"**/*.{ts,html}\" --fix && prettier --write \"**/*.{json,scss}\" --log-level silent",
         "ng": "ng",
@@ -32,6 +33,7 @@
         "@angular/cli": "^19.0.5",
         "@angular/compiler-cli": "^19.0.0",
         "@types/jasmine": "~5.1.0",
+        "concurrently": "^9.1.2",
         "electron": "^33.2.1",
         "electron-reload": "^2.0.0-alpha.1",
         "eslint-config-angular": "github:jano-kucera/eslint-config-angular#c7e4e5b540cb619251559fae87b480ccc6a523eb",
@@ -41,7 +43,8 @@
         "karma-coverage": "~2.2.0",
         "karma-jasmine": "~5.1.0",
         "karma-jasmine-html-reporter": "~2.1.0",
-        "typescript": "~5.6.2"
+        "typescript": "~5.6.2",
+        "wait-on": "^8.0.2"
     },
     "prettier": {
         "jsonRecursiveSort": true,
