@@ -19,6 +19,8 @@ void app.whenReady().then(async () => {
         width: 1920,
     });
 
+    mainWindow.webContents.openDevTools();
+
     // Load the app from localhost
     await mainWindow.loadURL(
         url.format({
