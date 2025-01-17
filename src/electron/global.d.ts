@@ -6,8 +6,13 @@ declare global {
     interface Window {
         /** Electron's main process API. */
         app: {
-            /** Loads JSON files in the given folder. */
-            loadJsonFiles: (folderPath: string) => Promise<string[]>;
+            /** Loads files in the given folder with given extension. */
+            loadFiles: (data: {
+                /** Dir path. */
+                dirPath: string;
+                /** File extension. */
+                extension: string;
+            }) => Promise<string[]>;
         };
     }
 }

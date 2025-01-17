@@ -2,11 +2,12 @@
 /// <reference path="./global.d.ts" />
 
 import { ipcRenderer } from "electron";
+import type { LoadFilesEventData } from "./app-events";
 import { AppEvent } from "./app-events";
 import type { AppInterface } from "./app-interface";
 
 (window as any).app = {
-    loadJsonFiles: (dirPath: string): Promise<string[]> => {
-        return ipcRenderer.invoke(AppEvent.LoadJsonFiles, dirPath);
+    loadFiles: (data: LoadFilesEventData): Promise<string[]> => {
+        return ipcRenderer.invoke(AppEvent.LoadFiles, data);
     },
 } satisfies AppInterface;

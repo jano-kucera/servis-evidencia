@@ -2,6 +2,7 @@ import { app, BrowserWindow, ipcMain } from "electron";
 import * as fs from "fs";
 import * as path from "path";
 import * as url from "url";
+import type { LoadFilesEventData } from "./app-events";
 import { AppEvent } from "./app-events";
 
 void app.whenReady().then(async () => {
@@ -29,31 +30,24 @@ void app.whenReady().then(async () => {
 });
 
 ipcMain.handle(
-    AppEvent.LoadJsonFiles,
-    (event: Electron.IpcMainInvokeEvent, dirPath: string) => {
+    AppEvent.LoadFiles,
+    (event: Electron.IpcMainInvokeEvent, data: LoadFilesEventData) => {
         const result: string[] = [];
-        const files = fs.readdirSync(dirPath, {
+        const files = fs.readdirSync(data.dirPath, {
             encoding: "utf-8",
             recursive: true,
         });
 
         // Find all JSON files in the given directory
         files.forEach((file: string) => {
-            if (path.extname(file) === ".json") {
+            if (path.extname(file) === data.extension) {
                 try {
                     // Read and parse the JSON file
-                    const fileContent = fs.readFileSync(
-                        path.join(dirPath, file),
-                        "utf-8",
+                    result.push(
+                        fs.readFileSync(path.join(data.dirPath, file), "utf-8"),
                     );
-
-                    // Add the parsed JSON to the result
-                    result.push(JSON.parse(fileContent));
                 } catch (error) {
-                    console.error(
-                        `Error reading or parsing file ${file}:`,
-                        error,
-                    );
+                    console.error(`Error reading file ${file}:`, error);
                 }
             }
         });

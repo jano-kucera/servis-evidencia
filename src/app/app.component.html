@@ -1,2 +1,3 @@
 <router-outlet />
-<app-folder-scan />
+<app-order-selector #orderSelector />
+<app-order [$order]="orderSelector.selectedOrder" />

@@ -1,12 +1,17 @@
 import { Component } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
-import { FolderScanComponent } from "./folder-scan/folder-scan.component";
+import { OrderComponent } from "./order/order.component";
+import { OrderSelectorComponent } from "./order-selector/order-selector.component";
 
 /**
  * Application's root component.
  */
 @Component({
-    imports: [FolderScanComponent, RouterOutlet],
+    imports: [
+        OrderComponent,
+        OrderSelectorComponent,
+        RouterOutlet,
+    ],
     selector: "app-root",
     styleUrl: "./app.component.scss",
     templateUrl: "./app.component.html",

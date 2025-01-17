@@ -1,0 +1,15 @@
+<input
+    type="text"
+    placeholder="Enter folder path"
+    [ngModel]="ordersService.$folderPath()"
+    (ngModelChange)="ordersService.$folderPath.set($event)" />
+
+<button (click)="ordersService.$folderPath.set(ordersService.$folderPath())">
+    Scan Folder
+</button>
+
+<ul>
+    @for (order of ordersService.$orders.value(); track $index) {
+        <li (click)="selectedOrder = order">{{ order | json }}</li>
+    }
+</ul>
