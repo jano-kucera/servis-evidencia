@@ -1,10 +1,13 @@
 import { JsonPipe } from "@angular/common";
 import { Component, inject } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { MatAutocompleteModule } from "@angular/material/autocomplete";
+import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
 import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatDividerModule } from "@angular/material/divider";
+import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
+import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { OrdersService } from "../services/orders.service";
 
 /**
@@ -14,10 +17,13 @@ import { OrdersService } from "../services/orders.service";
     imports: [
         FormsModule,
         JsonPipe,
-        MatAutocompleteModule,
+        MatButtonModule,
         MatCardModule,
         MatDatepickerModule,
+        MatDividerModule,
+        MatIconModule,
         MatInputModule,
+        MatSlideToggleModule,
     ],
     selector: "app-order",
     styleUrl: "./order.component.scss",

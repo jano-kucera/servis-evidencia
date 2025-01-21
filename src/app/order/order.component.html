@@ -1,10 +1,25 @@
 @if (ordersService.selectedOrder) {
-    {{ ordersService.selectedOrder | json }}
+    <pre>{{ ordersService.selectedOrder | json }}</pre>
     <mat-card appearance="outlined">
+        <!-- Header -->
         <mat-card-header>
-            <mat-card-title>Servis 4</mat-card-title>
+            <mat-card-title-group>
+                <!-- Info -->
+                <mat-card-title>Servis 4</mat-card-title>
+
+                <!-- Edit toggle -->
+                <mat-slide-toggle
+                    matSuffix
+                    labelPosition="before"
+                    [(ngModel)]="editing">
+                    Povoliť úpravy
+                </mat-slide-toggle>
+            </mat-card-title-group>
         </mat-card-header>
 
+        <mat-divider />
+
+        <!-- Main fields -->
         <mat-card-content>
             <div class="order-fields-container">
                 <!-- License plate -->
