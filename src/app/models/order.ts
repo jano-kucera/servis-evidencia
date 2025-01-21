@@ -1,5 +1,3 @@
-import type { Manufacturer } from "./manufacturers";
-
 /**
  * Order in the system.
  */
@@ -11,7 +9,10 @@ export interface Order {
     licensePlate: string;
 
     /** Car manufacturer. */
-    manufacturer: Manufacturer;
+    manufacturer: string;
+
+    /** Car model. */
+    model: string;
 
     /** Car's VIN. */
     vin: string;

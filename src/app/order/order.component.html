@@ -1,27 +1,82 @@
 @if (ordersService.selectedOrder) {
     {{ ordersService.selectedOrder | json }}
-    <div>
-        <h2>Order Details</h2>
-        <p
-            ><strong>Customer:</strong>
-            {{ ordersService.selectedOrder.customer }}</p
-        >
-        <p
-            ><strong>License Plate:</strong>
-            {{ ordersService.selectedOrder.licensePlate }}</p
-        >
-        <p
-            ><strong>Manufacturer:</strong>
-            {{ ordersService.selectedOrder.manufacturer }}</p
-        >
-        <p><strong>VIN:</strong> {{ ordersService.selectedOrder.vin }}</p>
-        <p
-            ><strong>Work Started:</strong>
-            {{ ordersService.selectedOrder.workStarted | date: "short" }}</p
-        >
-        <p
-            ><strong>Work Ended:</strong>
-            {{ ordersService.selectedOrder.workEnded | date: "short" }}</p
-        >
-    </div>
+    <mat-card appearance="outlined">
+        <mat-card-header>
+            <mat-card-title>Servis 4</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <div class="order-fields-container">
+                <!-- License plate -->
+                <mat-form-field>
+                    <mat-label>ŠPZ</mat-label>
+                    <input
+                        matInput
+                        [readonly]="!editing"
+                        [(ngModel)]="
+                            ordersService.selectedOrder.licensePlate
+                        " />
+                </mat-form-field>
+
+                <!-- Manufacturer -->
+                <mat-form-field>
+                    <mat-label>Značka</mat-label>
+                    <input
+                        matInput
+                        [readonly]="!editing"
+                        [(ngModel)]="
+                            ordersService.selectedOrder.manufacturer
+                        " />
+                </mat-form-field>
+
+                <!-- Manufacturer -->
+                <mat-form-field>
+                    <mat-label>Model</mat-label>
+                    <input
+                        matInput
+                        [readonly]="!editing"
+                        [(ngModel)]="ordersService.selectedOrder.model" />
+                </mat-form-field>
+
+                <!-- Customer -->
+                <mat-form-field>
+                    <mat-label>Zákazník</mat-label>
+                    <input
+                        matInput
+                        [readonly]="!editing"
+                        [(ngModel)]="ordersService.selectedOrder.customer" />
+                </mat-form-field>
+
+                <!-- VIN -->
+                <mat-form-field>
+                    <mat-label>VIN</mat-label>
+                    <input
+                        matInput
+                        [readonly]="!editing"
+                        [(ngModel)]="ordersService.selectedOrder.vin" />
+                </mat-form-field>
+
+                <!-- Work started/ended -->
+                <mat-form-field>
+                    <mat-label>Prevzaté - Odovzdané</mat-label>
+                    <mat-date-range-input [rangePicker]="picker">
+                        <input
+                            matStartDate
+                            [(ngModel)]="
+                                ordersService.selectedOrder.workStarted
+                            " />
+                        <input
+                            matEndDate
+                            [(ngModel)]="
+                                ordersService.selectedOrder.workEnded
+                            " />
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle
+                        matIconSuffix
+                        [for]="picker" />
+                    <mat-date-range-picker #picker />
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+    </mat-card>
 }

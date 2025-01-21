@@ -1,5 +1,5 @@
 import type { ResourceRef, WritableSignal } from "@angular/core";
-import { Injectable, resource, signal } from "@angular/core";
+import { effect, Injectable, resource, signal } from "@angular/core";
 import type { Order } from "../models/order";
 
 /**
@@ -37,4 +37,11 @@ export class OrdersService {
 
     /** Selected order. */
     public selectedOrder: Order;
+
+    /**
+     *
+     */
+    constructor() {
+        effect(() => (this.selectedOrder = this.$orders.value()?.[0]));
+    }
 }
