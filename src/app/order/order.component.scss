@@ -1,5 +1,5 @@
 .order-fields-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(0, 350px));
+    grid-template-columns: repeat(auto-fit, minmax(350px, auto));
     gap: 1rem;
 }
