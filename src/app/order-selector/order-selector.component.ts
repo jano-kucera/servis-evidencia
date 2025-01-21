@@ -1,19 +1,21 @@
-import { JsonPipe } from "@angular/common";
+import { DatePipe } from "@angular/common";
 import { Component, inject } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
+import { MatIconModule } from "@angular/material/icon";
 import type { Order } from "../models/order";
-import { OrdersService } from "./orders.service";
+import { OrdersService } from "../services/orders.service";
 
 /**
  * Order selector component.
  */
 @Component({
     imports: [
+        DatePipe,
         FormsModule,
-        JsonPipe,
         MatButtonModule,
+        MatIconModule,
         MatCardModule,
     ],
     selector: "app-order-selector",

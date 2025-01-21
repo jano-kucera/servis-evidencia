@@ -34,4 +34,7 @@ export class OrdersService {
         },
         request: () => ({ path: this.$folderPath() }),
     });
+
+    /** Selected order. */
+    public selectedOrder: Order;
 }

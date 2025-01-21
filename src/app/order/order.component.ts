@@ -1,15 +1,16 @@
-import type { InputSignal } from "@angular/core";
-import { Component, input } from "@angular/core";
-import type { Order } from "../models/order";
+import { DatePipe, JsonPipe } from "@angular/common";
+import { Component, inject } from "@angular/core";
+import { OrdersService } from "../services/orders.service";
 
 /**
  * Order component.
  */
 @Component({
+    imports: [DatePipe, JsonPipe],
     selector: "app-order",
     templateUrl: "./order.component.html",
 })
 export class OrderComponent {
-    /** Order to show and edit. */
-    public readonly $order: InputSignal<Order> = input.required<Order>();
+    /** Orders service. */
+    public ordersService: OrdersService = inject(OrdersService);
 }

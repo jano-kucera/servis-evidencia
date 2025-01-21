@@ -1,0 +1,8 @@
+<mat-form-field class="example-form-field">
+    <mat-label>Zdroj</mat-label>
+    <input
+        matInput
+        type="text"
+        [ngModel]="ordersService.$folderPath()"
+        (ngModelChange)="ordersService.$folderPath.set($event)" />
+</mat-form-field>

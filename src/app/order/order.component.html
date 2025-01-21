@@ -1,0 +1,27 @@
+@if (ordersService.selectedOrder) {
+    {{ ordersService.selectedOrder | json }}
+    <div>
+        <h2>Order Details</h2>
+        <p
+            ><strong>Customer:</strong>
+            {{ ordersService.selectedOrder.customer }}</p
+        >
+        <p
+            ><strong>License Plate:</strong>
+            {{ ordersService.selectedOrder.licensePlate }}</p
+        >
+        <p
+            ><strong>Manufacturer:</strong>
+            {{ ordersService.selectedOrder.manufacturer }}</p
+        >
+        <p><strong>VIN:</strong> {{ ordersService.selectedOrder.vin }}</p>
+        <p
+            ><strong>Work Started:</strong>
+            {{ ordersService.selectedOrder.workStarted | date: "short" }}</p
+        >
+        <p
+            ><strong>Work Ended:</strong>
+            {{ ordersService.selectedOrder.workEnded | date: "short" }}</p
+        >
+    </div>
+}

@@ -1,3 +1,10 @@
-<router-outlet />
-<app-order-selector #orderSelector />
-<app-order [$order]="orderSelector.selectedOrder" />
+<!-- Orders search -->
+<app-orders-search />
+<mat-divider />
+
+<!-- Orders cards -->
+<app-order-selector />
+<mat-divider />
+
+<!-- Selected order -->
+<app-order />
