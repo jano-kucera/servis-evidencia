@@ -14,6 +14,9 @@ export interface Order {
     /** Car model. */
     model: string;
 
+    /** Order's notes. */
+    notes: string;
+
     /** Car's VIN. */
     vin: string;
 

@@ -44,7 +44,7 @@
                         " />
                 </mat-form-field>
 
-                <!-- Manufacturer -->
+                <!-- Model -->
                 <mat-form-field>
                     <mat-label>Model</mat-label>
                     <input
@@ -92,6 +92,16 @@
                     <mat-date-range-picker #picker />
                 </mat-form-field>
             </div>
+
+            <mat-form-field style="width: 100%">
+                <mat-label>Poznámky</mat-label>
+                <textarea
+                    matInput
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    [(ngModel)]="ordersService.selectedOrder.notes">
+                </textarea>
+            </mat-form-field>
         </mat-card-content>
     </mat-card>
 }
