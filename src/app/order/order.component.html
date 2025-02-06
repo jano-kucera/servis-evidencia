@@ -87,6 +87,8 @@
                 </mat-form-field>
             </div>
 
+            <mat-divider />
+
             <!-- Notes -->
             <mat-form-field style="width: 100%">
                 <mat-label>Poznámky</mat-label>
@@ -102,75 +104,147 @@
 
             <!-- Order items -->
             <section
-                class="example-container mat-elevation-z8"
+                class="table-container mat-elevation-z8"
                 tabindex="0">
                 <table
                     mat-table
                     [dataSource]="order.items">
                     <!-- Name Column -->
                     <ng-container matColumnDef="name">
+                        <!-- Header -->
                         <th
                             *matHeaderCellDef
                             mat-header-cell>
-                            Name
+                            Názov
                         </th>
+                        <!-- Cell -->
                         <td
                             *matCellDef="let element"
                             mat-cell>
-                            {{ element.name }}
+                            <mat-form-field [appearance]="'outline'">
+                                <input
+                                    matInput
+                                    [readonly]="!editing"
+                                    [(ngModel)]="element.name" />
+                            </mat-form-field>
                         </td>
                     </ng-container>
 
                     <!-- Description Column -->
                     <ng-container matColumnDef="description">
+                        <!-- Header -->
                         <th
                             *matHeaderCellDef
                             mat-header-cell>
-                            Description
+                            Poznámky
                         </th>
+                        <!-- Cell -->
                         <td
                             *matCellDef="let element"
                             mat-cell>
-                            {{ element.description }}
+                            <mat-form-field [appearance]="'outline'">
+                                <input
+                                    matInput
+                                    [readonly]="!editing"
+                                    [(ngModel)]="element.description" />
+                            </mat-form-field>
                         </td>
                     </ng-container>
 
                     <!-- Quantity Column -->
                     <ng-container matColumnDef="quantity">
+                        <!-- Header -->
                         <th
                             *matHeaderCellDef
                             mat-header-cell>
-                            Quantity
+                            Množstvo
                         </th>
+                        <!-- Cell -->
                         <td
                             *matCellDef="let element"
                             mat-cell>
-                            {{ element.quantity }}
+                            <mat-form-field [appearance]="'outline'">
+                                <input
+                                    matInput
+                                    type="number"
+                                    [readonly]="!editing"
+                                    [(ngModel)]="element.quantity" />
+                            </mat-form-field>
                         </td>
                     </ng-container>
 
                     <!-- Price Column -->
                     <ng-container matColumnDef="price">
+                        <!-- Header -->
                         <th
                             *matHeaderCellDef
                             mat-header-cell>
-                            Price
+                            Cena
                         </th>
+                        <!-- Cell -->
                         <td
                             *matCellDef="let element"
                             mat-cell>
-                            {{ element.price }}
+                            <mat-form-field [appearance]="'outline'">
+                                <input
+                                    matInput
+                                    type="number"
+                                    [readonly]="!editing"
+                                    [(ngModel)]="element.price" />
+                            </mat-form-field>
+                        </td>
+                    </ng-container>
+
+                    <!-- Calculation Column -->
+                    <ng-container matColumnDef="calculation">
+                        <!-- Header -->
+                        <th
+                            *matHeaderCellDef
+                            mat-header-cell>
+                            Spolu
+                        </th>
+                        <!-- Cell -->
+                        <td
+                            *matCellDef="let element"
+                            mat-cell>
+                            <mat-form-field [appearance]="'outline'">
+                                <input
+                                    matInput
+                                    type="number"
+                                    [readonly]="true"
+                                    [ngModel]="
+                                        element.quantity * element.price
+                                    " />
+                            </mat-form-field>
+                        </td>
+                        <!-- Footer -->
+                        <td
+                            *matFooterCellDef
+                            mat-footer-cell>
+                            {{ orderSum }}
                         </td>
                     </ng-container>
 
                     @let displayedColumns =
-                        ["name", "description", "quantity", "price"];
+                        [
+                            "name",
+                            "description",
+                            "quantity",
+                            "price",
+                            "calculation",
+                        ];
+
                     <tr
                         *matHeaderRowDef="displayedColumns; sticky: true"
                         mat-header-row></tr>
                     <tr
                         *matRowDef="let row; columns: displayedColumns"
-                        mat-row></tr>
+                        mat-row>
+                    </tr>
+                    <tr
+                        *matFooterRowDef="['calculation']"
+                        mat-footer-row>
+                    </tr>
                 </table>
             </section>
         </mat-card-content>

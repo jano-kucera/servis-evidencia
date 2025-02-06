@@ -37,4 +37,15 @@ export class OrderComponent {
 
     /** Editing flag. */
     public editing: boolean = true;
+
+    /**
+     *
+     */
+    public get orderSum(): number {
+        console.log("calc");
+        return this.ordersService.selectedOrder.items.reduce(
+            (sum, item) => sum + item.price * item.quantity,
+            0,
+        );
+    }
 }
