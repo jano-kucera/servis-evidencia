@@ -1,5 +1,7 @@
-@if (ordersService.selectedOrder) {
-    <pre>{{ ordersService.selectedOrder | json }}</pre>
+@let order = ordersService.selectedOrder;
+
+@if (order) {
+    <pre>{{ order | json }}</pre>
     <mat-card appearance="outlined">
         <!-- Header -->
         <mat-card-header>
@@ -28,9 +30,7 @@
                     <input
                         matInput
                         [readonly]="!editing"
-                        [(ngModel)]="
-                            ordersService.selectedOrder.licensePlate
-                        " />
+                        [(ngModel)]="order.licensePlate" />
                 </mat-form-field>
 
                 <!-- Manufacturer -->
@@ -39,9 +39,7 @@
                     <input
                         matInput
                         [readonly]="!editing"
-                        [(ngModel)]="
-                            ordersService.selectedOrder.manufacturer
-                        " />
+                        [(ngModel)]="order.manufacturer" />
                 </mat-form-field>
 
                 <!-- Model -->
@@ -50,7 +48,7 @@
                     <input
                         matInput
                         [readonly]="!editing"
-                        [(ngModel)]="ordersService.selectedOrder.model" />
+                        [(ngModel)]="order.model" />
                 </mat-form-field>
 
                 <!-- Customer -->
@@ -59,7 +57,7 @@
                     <input
                         matInput
                         [readonly]="!editing"
-                        [(ngModel)]="ordersService.selectedOrder.customer" />
+                        [(ngModel)]="order.customer" />
                 </mat-form-field>
 
                 <!-- VIN -->
@@ -68,7 +66,7 @@
                     <input
                         matInput
                         [readonly]="!editing"
-                        [(ngModel)]="ordersService.selectedOrder.vin" />
+                        [(ngModel)]="order.vin" />
                 </mat-form-field>
 
                 <!-- Work started/ended -->
@@ -77,14 +75,10 @@
                     <mat-date-range-input [rangePicker]="picker">
                         <input
                             matStartDate
-                            [(ngModel)]="
-                                ordersService.selectedOrder.workStarted
-                            " />
+                            [(ngModel)]="order.workStarted" />
                         <input
                             matEndDate
-                            [(ngModel)]="
-                                ordersService.selectedOrder.workEnded
-                            " />
+                            [(ngModel)]="order.workEnded" />
                     </mat-date-range-input>
                     <mat-datepicker-toggle
                         matIconSuffix
@@ -99,7 +93,7 @@
                     matInput
                     cdkTextareaAutosize
                     cdkAutosizeMinRows="1"
-                    [(ngModel)]="ordersService.selectedOrder.notes">
+                    [(ngModel)]="order.notes">
                 </textarea>
             </mat-form-field>
         </mat-card-content>
