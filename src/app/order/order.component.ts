@@ -39,6 +39,27 @@ export class OrderComponent {
     public editing: boolean = true;
 
     /**
+     * Add new item to the order.
+     */
+    public addNewItem(): void {
+        if (this.ordersService.selectedOrder) {
+            this.ordersService.selectedOrder.items.push({
+                description: "",
+                name: "",
+                // eslint-disable-next-line no-null/no-null
+                price: null,
+                // eslint-disable-next-line no-null/no-null
+                quantity: null,
+            });
+
+            // update the reference to trigger change detection
+            this.ordersService.selectedOrder.items = [
+                ...this.ordersService.selectedOrder.items,
+            ];
+        }
+    }
+
+    /**
      *
      */
     public get orderSum(): number {
