@@ -4,7 +4,8 @@
         (click)="ordersService.selectedOrder = order">
         <mat-card-header>
             <mat-card-title>
-                {{ order.manufacturer }} - {{ order.model }}
+                {{ order.manufacturer }} {{ order.model }} -
+                {{ order.licensePlate }}
             </mat-card-title>
             <mat-card-subtitle>{{ order.customer }}</mat-card-subtitle>
             <mat-card-subtitle>
@@ -12,8 +13,6 @@
                 {{ order.workEnded | date }}
             </mat-card-subtitle>
         </mat-card-header>
-        <mat-card-content>
-            <p>{{ order.licensePlate }}</p>
-        </mat-card-content>
+        <mat-card-content />
     </mat-card>
 }
