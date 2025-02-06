@@ -8,6 +8,7 @@ import { MatDividerModule } from "@angular/material/divider";
 import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
+import { MatTableModule } from "@angular/material/table";
 import { OrdersService } from "../services/orders.service";
 
 /**
@@ -24,6 +25,7 @@ import { OrdersService } from "../services/orders.service";
         MatIconModule,
         MatInputModule,
         MatSlideToggleModule,
+        MatTableModule,
     ],
     selector: "app-order",
     styleUrl: "./order.component.scss",

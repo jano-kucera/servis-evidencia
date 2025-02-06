@@ -1,9 +1,14 @@
+import type { Item } from "./item";
+
 /**
  * Order in the system.
  */
 export interface Order {
     /** Customer. */
     customer: string;
+
+    /** Order's items. */
+    items: Item[];
 
     /** Car's license plate. */
     licensePlate: string;
