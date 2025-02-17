@@ -89,7 +89,7 @@
                 </mat-form-field>
             </div>
 
-            <mat-divider />
+            <mat-divider style="border-top-style: dashed" />
 
             <!-- Notes -->
             <mat-form-field style="width: 100%">
@@ -102,17 +102,6 @@
                     [(ngModel)]="order.notes">
                 </textarea>
             </mat-form-field>
-
-            <mat-divider />
-
-            <!-- Add new item button -->
-            <button
-                mat-raised-button
-                color="primary"
-                [disabled]="!editing"
-                (click)="addNewItem()">
-                Pridať položku
-            </button>
 
             <mat-divider />
 
@@ -231,12 +220,6 @@
                                     " />
                             </mat-form-field>
                         </td>
-                        <!-- Footer -->
-                        <td
-                            *matFooterCellDef
-                            mat-footer-cell>
-                            {{ orderSum }}
-                        </td>
                     </ng-container>
 
                     <!-- Delete Column -->
@@ -276,11 +259,25 @@
                         *matRowDef="let row; columns: displayedColumns"
                         mat-row>
                     </tr>
-                    <tr
-                        *matFooterRowDef="['calculation']"
-                        mat-footer-row>
-                    </tr>
                 </table>
+
+                <mat-divider style="border-top-style: dashed" />
+
+                <!-- Add new item button -->
+                <button
+                    mat-stroked-button
+                    [disabled]="!editing"
+                    (click)="addNewItem()">
+                    <mat-icon>add</mat-icon>
+                    Pridať položku
+                </button>
+
+                <!-- Button with the final sum -->
+                <button
+                    style="float: right; margin-right: 2rem; font-size: 1.25rem"
+                    mat-flat-button>
+                    Spolu: {{ orderSum | number: "1.2-2" }} €
+                </button>
             </section>
         </mat-card-content>
     </mat-card>
