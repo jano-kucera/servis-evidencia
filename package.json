@@ -35,7 +35,6 @@
         "@types/jasmine": "~5.1.0",
         "concurrently": "^9.1.2",
         "electron": "^33.2.1",
-        "electron-reload": "^2.0.0-alpha.1",
         "eslint-config-angular": "github:jano-kucera/eslint-config-angular#c7e4e5b540cb619251559fae87b480ccc6a523eb",
         "jasmine-core": "~5.4.0",
         "karma": "~6.4.0",
