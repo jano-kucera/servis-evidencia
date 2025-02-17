@@ -8,6 +8,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { MatTableModule } from "@angular/material/table";
+import type { Item } from "../models/item";
 import { OrdersService } from "../services/orders.service";
 
 /**
@@ -55,6 +56,17 @@ export class OrderComponent {
                 ...this.ordersService.selectedOrder.items,
             ];
         }
+    }
+
+    /**
+     * Delete the item from the order.
+     * @param item Item to delete.
+     */
+    public deleteItem(item: Item): void {
+        this.ordersService.selectedOrder.items =
+            this.ordersService.selectedOrder.items.filter(
+                (i: Item) => i !== item,
+            );
     }
 
     /**

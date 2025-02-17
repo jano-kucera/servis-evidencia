@@ -105,6 +105,7 @@
             <button
                 mat-raised-button
                 color="primary"
+                [disabled]="!editing"
                 (click)="addNewItem()">
                 Pridať položku
             </button>
@@ -234,6 +235,26 @@
                         </td>
                     </ng-container>
 
+                    <!-- Delete Column -->
+                    <ng-container matColumnDef="delete">
+                        <!-- Header -->
+                        <th
+                            *matHeaderCellDef
+                            mat-header-cell>
+                        </th>
+                        <!-- Cell -->
+                        <td
+                            *matCellDef="let element"
+                            mat-cell>
+                            <button
+                                mat-icon-button
+                                [disabled]="!editing"
+                                (click)="deleteItem(element)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </td>
+                    </ng-container>
+
                     @let displayedColumns =
                         [
                             "name",
@@ -241,6 +262,7 @@
                             "quantity",
                             "price",
                             "calculation",
+                            "delete",
                         ];
 
                     <tr
