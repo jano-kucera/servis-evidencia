@@ -1,11 +1,11 @@
 {
     "name": "servis-evidencia",
     "version": "0.0.0",
-    "main": "src/electron/app.js",
+    "main": "app.js",
     "scripts": {
         "start": "concurrently \"npm:serve\" \"npm:transpile\" \"npm:electron\"",
         "serve": "ng serve",
-        "transpile": "tsc src/electron/app-preload.ts src/electron/app.ts --watch",
+        "transpile": "tsc src/electron/app-preload.ts app.ts --watch",
         "electron": "wait-on http://localhost:4200 && electron . --trace-warnings ",
         "electron-build": "ng build --base-href ./ && npx electron-packager . servis-evidencia --overwrite",
         "lint": "npx eslint \"**/*.{ts,html}\" --fix && prettier --write \"**/*.{json,scss}\" --log-level silent",
