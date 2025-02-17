@@ -74,13 +74,16 @@
                     <mat-date-range-input [rangePicker]="picker">
                         <input
                             matStartDate
+                            [readonly]="!editing"
                             [(ngModel)]="order.workStarted" />
                         <input
                             matEndDate
+                            [readonly]="!editing"
                             [(ngModel)]="order.workEnded" />
                     </mat-date-range-input>
                     <mat-datepicker-toggle
                         matIconSuffix
+                        [disabled]="!editing"
                         [for]="picker" />
                     <mat-date-range-picker #picker />
                 </mat-form-field>
@@ -95,6 +98,7 @@
                     matInput
                     cdkTextareaAutosize
                     cdkAutosizeMinRows="1"
+                    [readonly]="!editing"
                     [(ngModel)]="order.notes">
                 </textarea>
             </mat-form-field>
