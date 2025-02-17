@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unused-modules */
 /**
  * Electron's main process API.
  */

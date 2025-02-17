@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unused-modules */
 /**
  * Enum for app events.
  */

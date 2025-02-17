@@ -7,7 +7,7 @@ import { AppEvent } from "./app-events";
 import type { AppInterface } from "./app-interface";
 
 (window as any).app = {
-    loadFiles: (data: LoadFilesEventData): Promise<string[]> => {
+    loadFiles: (data: LoadFilesEventData): Promise<Record<string, string>> => {
         return ipcRenderer.invoke(AppEvent.LoadFiles, data);
     },
 } satisfies AppInterface;

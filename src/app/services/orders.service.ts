@@ -21,13 +21,17 @@ export class OrdersService {
             });
 
             // parse the raw content to objects
-            const parsedFiles = rawFiles.map((raw: string) => {
-                try {
-                    return JSON.parse(raw);
-                } catch {
-                    return undefined;
-                }
-            });
+            // eslint-disable-next-line prettier/prettier
+            const parsedFiles = Object.entries(rawFiles).map(([path, raw]: [string, string]) => {
+                    try {
+                        const order: Order = JSON.parse(raw);
+                        order.filePath = path;
+                        return order;
+                    } catch {
+                        return undefined;
+                    }
+                },
+            );
 
             // return only the parsed files
             return parsedFiles.filter((parsed: Order) => !!parsed);
@@ -39,9 +43,10 @@ export class OrdersService {
     public selectedOrder: Order;
 
     /**
-     *
+     * Constructor.
      */
     constructor() {
+        // preselect the first order
         effect(() => (this.selectedOrder = this.$orders.value()?.[0]));
     }
 }

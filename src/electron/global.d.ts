@@ -12,7 +12,7 @@ declare global {
                 dirPath: string;
                 /** File extension. */
                 extension: string;
-            }) => Promise<string[]>;
+            }) => Promise<Record<string, string>>;
         };
     }
 }

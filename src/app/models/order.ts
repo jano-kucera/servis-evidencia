@@ -7,6 +7,9 @@ export interface Order {
     /** Customer. */
     customer: string;
 
+    /** Order's filepath. */
+    filePath: string;
+
     /** Order's items. */
     items: Item[];
 

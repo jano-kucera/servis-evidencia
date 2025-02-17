@@ -34,20 +34,20 @@ void app.whenReady().then(async () => {
 ipcMain.handle(
     AppEvent.LoadFiles,
     (event: Electron.IpcMainInvokeEvent, data: LoadFilesEventData) => {
-        const result: string[] = [];
         const files = fs.readdirSync(data.dirPath, {
             encoding: "utf-8",
             recursive: true,
         });
 
         // Find all JSON files in the given directory
+        const result: Record<string, string> = {};
         files.forEach((file: string) => {
             if (path.extname(file) === data.extension) {
                 try {
+                    const filePath = path.join(data.dirPath, file);
+
                     // Read and parse the JSON file
-                    result.push(
-                        fs.readFileSync(path.join(data.dirPath, file), "utf-8"),
-                    );
+                    result[filePath] = fs.readFileSync(filePath, "utf-8");
                 } catch (error) {
                     console.error(`Error reading file ${file}:`, error);
                 }
