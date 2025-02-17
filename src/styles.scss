@@ -25,3 +25,14 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
+:root {
+    @include mat.table-overrides(
+        (
+            header-headline-color: var(--mat-sys-primary),
+            header-headline-weight: bold,
+            header-headline-size: 1.25rem,
+            row-item-outline-color: #ccc,
+        )
+    );
+}
