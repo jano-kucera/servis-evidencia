@@ -19,6 +19,7 @@ void app.whenReady().then(async () => {
         width: 1920,
     });
 
+    mainWindow.menuBarVisible = false;
     mainWindow.webContents.openDevTools();
 
     // Load the app from localhost
