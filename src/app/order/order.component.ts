@@ -72,12 +72,13 @@ export class OrderComponent {
     }
 
     /**
-     *
+     * Gets the order sum.
+     * @returns Order sum.
      */
+    // eslint-disable-next-line no-restricted-syntax
     public get orderSum(): number {
-        console.log("calc");
         return this.ordersService.selectedOrder.items.reduce(
-            (sum, item) => sum + item.price * item.quantity,
+            (sum: number, item: Item) => sum + item.price * item.quantity,
             0,
         );
     }
