@@ -2,6 +2,7 @@ import { DatePipe } from "@angular/common";
 import { Component, inject } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { MatCardModule } from "@angular/material/card";
+import { QueryPipe } from "../pipes/query.pipe";
 import { OrdersService } from "../services/orders.service";
 
 /**
@@ -12,6 +13,7 @@ import { OrdersService } from "../services/orders.service";
         DatePipe,
         FormsModule,
         MatCardModule,
+        QueryPipe,
     ],
     selector: "app-order-selector",
     styleUrl: "./order-selector.component.scss",

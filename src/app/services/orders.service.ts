@@ -10,6 +10,9 @@ export class OrdersService {
     /** Folder path to the orders. */
     public $folderPath: WritableSignal<string> = signal(".data");
 
+    /** Search query. */
+    public $searchQuery: WritableSignal<string> = signal("");
+
     /** Loaded orders from the set folder. */
     public $orders: ResourceRef<Order[]> = resource({
         // eslint-disable-next-line @typescript-eslint/typedef

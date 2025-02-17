@@ -1,4 +1,8 @@
-@for (order of ordersService.$orders.value(); track $index) {
+@for (
+    order of ordersService.$orders.value()
+        | appQuery: ordersService.$searchQuery();
+    track $index
+) {
     <mat-card
         appearance="outlined"
         (click)="ordersService.selectedOrder = order">
