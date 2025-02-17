@@ -35,4 +35,10 @@ input::-webkit-inner-spin-button {
             row-item-outline-color: #ccc,
         )
     );
+
+    @include mat.form-field-overrides(
+        (
+            outlined-outline-width: 0,
+        )
+    );
 }
